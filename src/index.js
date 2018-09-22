@@ -1,3 +1,3 @@
-import Foo from "./foo";
+import IMCApp from "./imcapp";
 
-var foo = new Foo();
+var myApp = new IMCApp('#app');
