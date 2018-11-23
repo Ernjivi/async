@@ -18,6 +18,8 @@
   "dependencies": {
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
-    "babel-loader": "^8.0.2"
+    "babel-loader": "^8.0.2",
+    "babel-plugin-transform-regenerator": "^6.26.0",
+    "babel-polyfill": "^6.26.0"
   }
 }
