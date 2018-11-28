@@ -1,37 +1,35 @@
-// Callback hell
-//  fetch('http://localhost:3000/authors')
-//   .then(response => {
-//     response.json()
-//       .then(data => console.log(data))
-//   })
 
+class App {
 
-// fetch('', {})
-
-
-//  fetch('http://localhost:3000/authors')
-//   .then(response => {
-//     return response.json()
-//   })
-//   .then(data => {
-//     var app = document.querySelector('#app');
-//     var list = app.querySelector('.authors');
-
-//     data.forEach(author => {
-//       var listItem = document.createElement('li')
-//       listItem.textContent = author.name
-//       list.append(listItem);
-//     })
-//   });
-
-async function getBook(){
-  try{
-    let response = await fetch('http://localhost:3000/books/1');
-    let book = await response.json();
-    return book;
-  } catch(err){
-    console.log(err);
+  constructor(selector){
+    this.el = document.querySelector(selector);
+    this.list = this.el.querySelector('.authors');
+    this.init();
   }
+
+  async getAuthors(){
+    let request = await fetch('http://localhost:3000/authors');
+    let authors = await request.json()
+    this.authors = authors;
+  }
+
+  render(){
+    console.log(this.authors);
+  }
+
+  // init(){
+  //   this.getAuthors().then(() => {
+  //     this.render();
+  //   })
+  // }
+
+  async init(){
+    await this.getAuthors();
+    this.render();
+  }
+
 }
 
-getBook().then((data) => console.log(data));
+
+let myApp = new App('#app');
+// myApp.init();
