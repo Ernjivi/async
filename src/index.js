@@ -6,6 +6,9 @@
 //   })
 
 
+// fetch('', {})
+
+
 //  fetch('http://localhost:3000/authors')
 //   .then(response => {
 //     return response.json()
@@ -23,7 +26,7 @@
 
 async function getBook(){
   try{
-    response = await fetch('https://localhost:3000/books/1');
+    response = await fetch('http://localhost:3000/books/1');
     book = await response.json();
     return data;
   } catch(err){
@@ -31,4 +34,6 @@ async function getBook(){
   }
 }
 
+
+// getBook().then((data) => console.log(data));
 console.log(getBook());
