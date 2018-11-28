@@ -26,14 +26,12 @@
 
 async function getBook(){
   try{
-    response = await fetch('http://localhost:3000/books/1');
-    book = await response.json();
-    return data;
+    let response = await fetch('http://localhost:3000/books/1');
+    let book = await response.json();
+    return book;
   } catch(err){
     console.log(err);
   }
 }
 
-
-// getBook().then((data) => console.log(data));
-console.log(getBook());
+getBook().then((data) => console.log(data));
